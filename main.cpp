@@ -13,12 +13,6 @@ double rotateA = 25.0, rotateB = 0.9, rotateC = -1.5, rotateD = 0.0;
 double scaleA = 1, scaleB = 1, scaleC = 1;
 //gcc main.cpp -o main -lGL -lGLU -lglut
 
-unsigned char CHECKERS [4][4]={{000,255,000,255},
-                               {255,000,255,000},
-                               {000,255,000,255},
-                               {255,000,255,000}
-};
-
 #define checkImageWidth 64
 #define checkImageHeight 64
 static GLubyte checkImage[checkImageHeight][checkImageWidth][4];
@@ -92,25 +86,25 @@ void displayPatas(){
   // PATAS
 
   // Back face (z = -0.5f)
-  glColor3f(1.0f, 1.0f, 0.0f);     // Rosa izquierda
+  glColor3f(1.0f, 1.0f, 0.0f);     
   glTexCoord2f(0, 0);glVertex3f( 0.3f,  0.0f, 0.3f);
   glTexCoord2f(0, 1);glVertex3f( 0.1f,  0.0f, 0.3f);
   glTexCoord2f(1, 1);glVertex3f( 0.1f, -0.7f, 0.3f);
   glTexCoord2f(1, 0);glVertex3f( 0.3f, -0.7f, 0.3f);
 
-  glColor3f(1.0f, 1.0f, 0.0f);     // Rosa izquierda
+  glColor3f(1.0f, 1.0f, 0.0f);     
   glTexCoord2f(0, 0);glVertex3f( 0.8f,  0.0f, 0.3f);
   glTexCoord2f(0, 1);glVertex3f( 0.6f,  0.0f, 0.3f);
   glTexCoord2f(1, 1);glVertex3f( 0.6f, -0.7f, 0.3f);
   glTexCoord2f(1, 0);glVertex3f( 0.8f, -0.7f, 0.3f);
 
-  glColor3f(1.0f, 1.0f, 0.0f);     // Green
+  glColor3f(1.0f, 1.0f, 0.0f);
   glTexCoord2f(0, 0);glVertex3f( 0.85f, -0.7f, 0.2f);
   glTexCoord2f(0, 1);glVertex3f( 0.55f, -0.7f, 0.2f);
   glTexCoord2f(1, 1);glVertex3f( 0.55f, -0.7f, 0.8f);
   glTexCoord2f(1, 0);glVertex3f( 0.85f, -0.7f, 0.8f);
 
-  glColor3f(1.0f, 1.0f, 0.0f);     // Green
+  glColor3f(1.0f, 1.0f, 0.0f);
   glTexCoord2f(0, 0);glVertex3f( 0.35f, -0.7f, 0.2f);
   glTexCoord2f(0, 1);glVertex3f( 0.05f, -0.7f, 0.2f);
   glTexCoord2f(1, 1);glVertex3f( 0.05f, -0.7f, 0.8f);
@@ -138,7 +132,7 @@ void displayCuerpo(){
   glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
   // CUERPO
    // top face
-    glColor3f(0.5f, 0.5f, 0.5f);     // Green
+    glColor3f(0.9f, 0.9f, 0.9f);
 
     glTexCoord2f(0, 0);glVertex3f( 1.0f, 1.0f, -0.3f);
     glTexCoord2f(0, 2);glVertex3f(-0.0f, 1.0f, -0.3f);
@@ -146,35 +140,35 @@ void displayCuerpo(){
     glTexCoord2f(2, 0);glVertex3f( 1.0f, 1.0f,  1.3f);
 
     // Bottom face (y = -0.5f)
-    glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f( 1.0f, -0.0f,  1.3f);
     glTexCoord2f(0, 2);glVertex3f(-0.0f, -0.0f,  1.3f);
     glTexCoord2f(2, 2);glVertex3f(-0.0f, -0.0f, -0.3f);
     glTexCoord2f(2, 0);glVertex3f( 1.0f, -0.0f, -0.3f);
     //
     // front face  (z = 0.5f)
-    glColor3f(0.5f, 0.5f, 1.0f);     // Rosa izquierda
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f( 1.0f,  1.0f, 1.3f);
     glTexCoord2f(0, 2);glVertex3f(-0.0f,  1.0f, 1.3f);
     glTexCoord2f(2, 2);glVertex3f(-0.0f, -0.0f, 1.3f);
     glTexCoord2f(2, 0);glVertex3f( 1.0f, -0.0f, 1.3f);
 
     // Back face (z = -0.5f)
-    glColor3f(1.0f, 1.5f, 0.5f);     // Yellow
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f( 1.0f, -0.0f, -0.3f);
     glTexCoord2f(0, 2);glVertex3f(-0.0f, -0.0f, -0.3f);
     glTexCoord2f(2, 2);glVertex3f(-0.0f,  1.0f, -0.3f);
     glTexCoord2f(2, 0);glVertex3f( 1.0f,  1.0f, -0.3f);
     //
     // Left face (x = -0.5f)
-    glColor3f(1.0f, 0.5f, 0.5f);     // rosa
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f(0.0f,  1.0f,  1.3f);
     glTexCoord2f(0, 2);glVertex3f(0.0f,  1.0f, -0.3f);
     glTexCoord2f(2, 2);glVertex3f(0.0f, -0.0f, -0.3f);
     glTexCoord2f(2, 0);glVertex3f(0.0f, -0.0f,  1.3f);
     //
     // Right face (x = 0.5f)
-    glColor3f(1.0f, 0.5f, 0.5f);     // Magenta
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f(1.0f,  1.0f, -0.3f);
     glTexCoord2f(0, 2);glVertex3f(1.0f,  1.0f,  1.3f);
     glTexCoord2f(2, 2);glVertex3f(1.0f, -0.0f,  1.3f);
@@ -203,42 +197,42 @@ void displayAlaIzq(){
   glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
   // ALAS
    // top face
-    glColor3f(0.5f, 0.5f, 0.5f);     // Green
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 0.0f, 1.0f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(-0.3f, 1.0f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(-0.3f, 1.0f,  1.0f);
     glTexCoord2f(5, 0);glVertex3f( 0.0f, 1.0f,  1.0f);
 
     // Bottom face (y = -0.5f)
-    glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 0.0f, 0.3f,  1.0f);
     glTexCoord2f(0, 5);glVertex3f(-0.3f, 0.3f,  1.0f);
     glTexCoord2f(5, 5);glVertex3f(-0.3f, 0.3f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f( 0.0f, 0.3f, -0.0f);
     //
     // front face  (z = 0.5f)
-    glColor3f(0.5f, 0.5f, 1.0f);     // Rosa izquierda
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 0.0f,  1.0f, 1.0f);
     glTexCoord2f(0, 5);glVertex3f(-0.3f,  1.0f, 1.0f);
     glTexCoord2f(5, 5);glVertex3f(-0.3f, 0.3f, 1.0f);
     glTexCoord2f(5, 0);glVertex3f( 0.0f, 0.3f, 1.0f);
 
     // Back face (z = -0.5f)
-    glColor3f(1.0f, 1.5f, 0.5f);     // Yellow
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 0.0f, 0.3f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(-0.3f, 0.3f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(-0.3f,  1.0f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f( 0.0f,  1.0f, -0.0f);
     //
     // Left face (x = -0.5f)
-    glColor3f(1.0f, 0.5f, 0.5f);     // rosa
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f(-0.3f,  1.0f,  1.0f);
     glTexCoord2f(0, 5);glVertex3f(-0.3f,  1.0f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(-0.3f, 0.3f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f(-0.3f, 0.3f,  1.0f);
     //
     // Right face (x = 0.5f)
-    glColor3f(1.0f, 0.3f, 0.8f);     // Magenta
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f(0.0f,  1.0f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(0.0f,  1.0f,  1.0f);
     glTexCoord2f(5, 5);glVertex3f(0.0f, 0.3f,  1.0f);
@@ -263,42 +257,42 @@ void displayAlaDer(){
   glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
   // ALAS
    // top face
-    glColor3f(0.5f, 0.5f, 0.5f);     // Green
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 1.3f, 1.0f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(1.0f, 1.0f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(1.0f, 1.0f,  1.0f);
     glTexCoord2f(5, 0);glVertex3f( 1.3f, 1.0f,  1.0f);
 
     // Bottom face (y = -0.5f)
-    glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 1.3f, 0.3f,  1.0f);
     glTexCoord2f(0, 5);glVertex3f(1.0f, 0.3f,  1.0f);
     glTexCoord2f(5, 5);glVertex3f(1.0f, 0.3f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f( 1.3f, 0.3f, -0.0f);
     //
     // front face  (z = 0.5f)
-    glColor3f(0.5f, 0.5f, 1.0f);     // Rosa izquierda
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 1.3f,  1.0f, 1.0f);
     glTexCoord2f(0, 5);glVertex3f(1.0f,  1.0f, 1.0f);
     glTexCoord2f(5, 5);glVertex3f(1.0f, 0.3f, 1.0f);
     glTexCoord2f(5, 0);glVertex3f( 1.3f, 0.3f, 1.0f);
 
     // Back face (z = -0.5f)
-    glColor3f(1.0f, 1.5f, 0.5f);     // Yellow
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f( 1.3f, 0.3f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(1.0f, 0.3f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(1.0f,  1.0f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f( 1.3f,  1.0f, -0.0f);
     //
     // Left face (x = -0.5f)
-    glColor3f(1.0f, 0.5f, 0.5f);     // rosa
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f(1.0f,  1.0f,  1.0f);
     glTexCoord2f(0, 5);glVertex3f(1.0f,  1.0f, -0.0f);
     glTexCoord2f(5, 5);glVertex3f(1.0f, 0.3f, -0.0f);
     glTexCoord2f(5, 0);glVertex3f(1.0f, 0.3f,  1.0f);
     //
     // Right face (x = 0.5f)
-    glColor3f(1.0f, 0.3f, 0.8f);     // Magenta
+    glColor3f(0.8f, 0.8f, 0.8f);
     glTexCoord2f(0, 0);glVertex3f(1.3f,  1.0f, -0.0f);
     glTexCoord2f(0, 5);glVertex3f(1.3f,  1.0f,  1.0f);
     glTexCoord2f(5, 5);glVertex3f(1.3f, 0.3f,  1.0f);
@@ -324,42 +318,42 @@ void displayCabeza(){
 
 
     // Bottom face (y = -0.5f)
-    glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f, 0.5f, 0.2f);
     glTexCoord2f(0, 3.5);glVertex3f( 0.1f, 0.5f, 0.2f);
     glTexCoord2f(3.5, 3.5);glVertex3f( 0.1f, 0.5f, 1.2f);
     glTexCoord2f(3.5, 0);glVertex3f( 0.7f, 0.5f, 1.2f);
     // //
     // Back face (z = -0.5f)
-    glColor3f(0.5f, 0.5f, 0.5f);     // Rosa izquierda
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.3f, 0.2f);
     glTexCoord2f(0, 3.5);glVertex3f( 0.1f,  1.3f, 0.2f);
     glTexCoord2f(3.5, 3.5);glVertex3f( 0.1f, 0.5f, 0.2f);
     glTexCoord2f(3.5, 0);glVertex3f( 0.7f, 0.5f, 0.2f);
     // //
     // Left face (x = -0.5f)
-    glColor3f(0.0f, 0.3f, 0.8f);     // Magenta
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f(0.1f, 1.3f, 0.2f);
     glTexCoord2f(0, 3.5);glVertex3f(0.1f, 1.3f, 1.2f);
     glTexCoord2f(3.5, 3.5);glVertex3f(0.1f, 0.5f, 1.2f);
     glTexCoord2f(3.5, 0);glVertex3f(0.1f, 0.5f, 0.2f);
     // //
     // Right face (x = 0.5f)
-    // glColor3f(0.0f, 0.3f, 0.8f);     // Magenta
+    glColor3f(0.9f, 0.9f, 0.9f);
     glTexCoord2f(0, 0);glVertex3f(0.7f, 1.3f, 0.2f);
     glTexCoord2f(0, 3.5);glVertex3f(0.7f, 1.3f, 1.2f);
     glTexCoord2f(3.5, 3.5);glVertex3f(0.7f, 0.5f, 1.2f);
     glTexCoord2f(3.5, 0);glVertex3f(0.7f, 0.5f, 0.2f);
 
     // top face
-     // glColor3f(0.2f, 0.2f, 0.2f);     // Green
+     glColor3f(0.9f, 0.9f, 0.9f);
      glTexCoord2f(0, 0);glVertex3f( 0.7f, 1.3f, 0.2f);
      glTexCoord2f(0, 3.5);glVertex3f( 0.1f, 1.3f, 0.2f);
      glTexCoord2f(3.5, 3.5);glVertex3f( 0.1f, 1.3f, 1.2f);
      glTexCoord2f(3.5, 0);glVertex3f( 0.7f, 1.3f, 1.2f);
 
     // front face  (z = 0.5f)
-    // glColor3f(0.2f, 0.2f, 0.2f);     // Rosa izquierda
+    glColor3f(0.9f, 0.9f, 0.9f);     // Rosa izquierda
     glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.3f, 1.2f);
     glTexCoord2f(0, 3.5);glVertex3f( 0.1f,  1.3f, 1.2f);
     glTexCoord2f(3.5, 3.5);glVertex3f( 0.1f, 0.5f, 1.2f);
@@ -386,42 +380,42 @@ void displayPico(){
 
 
     // Bottom face (y = -0.5f)
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f, 0.8f, 1.2f);
     glTexCoord2f(0, .5);glVertex3f( 0.1f, 0.8f, 1.2f);
     glTexCoord2f(.5, .5);glVertex3f( 0.1f, 0.8f, 1.4f);
     glTexCoord2f(.5, 0);glVertex3f( 0.7f, 0.8f, 1.4f);
     // //
     //Back face (z = -0.5f)
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.0f, 1.2f);
     glTexCoord2f(0, .5);glVertex3f( 0.1f,  1.0f, 1.2f);
     glTexCoord2f(.5, .5);glVertex3f( 0.1f, 0.8f, 1.2f);
     glTexCoord2f(.5, 0);glVertex3f( 0.7f, 0.8f, 1.2f);
     // //
     // // Left face (x = -0.5f)
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f(0.1f, 0.8f, 1.2f);
     glTexCoord2f(0, .5);glVertex3f(0.1f, 1.0f, 1.2f);//
     glTexCoord2f(.5, .5);glVertex3f(0.1f, 0.8f, 1.4f);
     glTexCoord2f(.5, 0);glVertex3f(0.1f, 1.0f, 1.4f);
     // //
     // // Right face (x = 0.5f)
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f(0.7f, 0.8f, 1.2f);
     glTexCoord2f(0, .5);glVertex3f(0.7f, 1.0f, 1.2f);//
     glTexCoord2f(.5, .5);glVertex3f(0.7f, 0.8f, 1.4f);
     glTexCoord2f(.5, 0);glVertex3f(0.7f, 1.0f, 1.4f);
     //
     // top face
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f, 1.0f, 1.2f);
     glTexCoord2f(0, .5);glVertex3f( 0.1f, 1.0f, 1.2f);
     glTexCoord2f(.5, .5);glVertex3f( 0.1f, 1.0f, 1.4f);
     glTexCoord2f(.5, 0);glVertex3f( 0.7f, 1.0f, 1.4f);
 
     // // front face  (z = 0.5f)
-    // glColor3f(1.0f, 1.0f, 0.5f);
+    glColor3f(1.0f, 1.0f, 0.5f);
     glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.0f, 1.4f);
     glTexCoord2f(0, .5);glVertex3f( 0.1f,  1.0f, 1.4f);
     glTexCoord2f(.5, .5);glVertex3f( 0.1f, 0.8f, 1.4f);
@@ -446,13 +440,13 @@ void displayOjos(){
   glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
 
 
-  glColor3f(1.0f, 1.0f, 1.0f);
+  glColor3f(0.0f, 0.0f, 0.0f);
   glTexCoord2f(0, 0);glVertex3f( 0.4f,  1.2f, 1.4f);
   glTexCoord2f(0, .5);glVertex3f( 0.2f,  1.2f, 1.4f);
   glTexCoord2f(.5, .5);glVertex3f( 0.2f, 1.0f, 1.4f);
   glTexCoord2f(.5, 0);glVertex3f( 0.4f, 1.0f, 1.4f);
 
-  glColor3f(1.0f, 1.0f, 1.0f);
+  glColor3f(0.0f, 0.0f, 0.0f);
   glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.2f, 1.4f);
   glTexCoord2f(0, .5);glVertex3f( 0.5f,  1.2f, 1.4f);
   glTexCoord2f(.5, .5);glVertex3f( 0.5f, 1.0f, 1.4f);
