@@ -5,13 +5,21 @@
  */
 
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 /* Global variables */
 char title[] = "3D Shapes";
 
 double translateA = 0.0, translateB = 0.0, translateC = -9.0;
 double rotateA = 25.0, rotateB = 0.9, rotateC = -1.5, rotateD = 0.0;
 double scaleA = 1, scaleB = 1, scaleC = 1;
-//gcc main.cpp -o main -lGL -lGLU -lglut
+// angle of rotation for the camera direction
+float angle=0.0;
+// actual vector representing the camera's direction
+float lx=0.0f,lz=-1.0f;
+// XZ position of the camera
+float x=0.0f,z=5.0f;
 
 #define checkImageWidth 64
 #define checkImageHeight 64
@@ -64,8 +72,6 @@ static GLfloat floorVertices[4][3] = {
 static void
 displayFloor(void)
 {
-
-
   glBegin(GL_QUADS);
     glColor3f(0.0f, 0.4f, 0.0f); 
     glTexCoord2f(0.0, 0.0);
@@ -439,18 +445,17 @@ void displayOjos(){
   
   glBegin(GL_QUADS);                // Begin drawing the color cube with 6 quads
 
+  glColor3f(0.0f, 0.0f, 0.0f);
+  glVertex3f( 0.35f,  1.2f, 1.4f);
+  glVertex3f( 0.2f,  1.2f, 1.4f);
+  glVertex3f( 0.2f, 1.05f, 1.4f);
+  glVertex3f( 0.35f, 1.05f, 1.4f);
 
   glColor3f(0.0f, 0.0f, 0.0f);
-  glTexCoord2f(0, 0);glVertex3f( 0.4f,  1.2f, 1.4f);
-  glTexCoord2f(0, .5);glVertex3f( 0.2f,  1.2f, 1.4f);
-  glTexCoord2f(.5, .5);glVertex3f( 0.2f, 1.0f, 1.4f);
-  glTexCoord2f(.5, 0);glVertex3f( 0.4f, 1.0f, 1.4f);
-
-  glColor3f(0.0f, 0.0f, 0.0f);
-  glTexCoord2f(0, 0);glVertex3f( 0.7f,  1.2f, 1.4f);
-  glTexCoord2f(0, .5);glVertex3f( 0.5f,  1.2f, 1.4f);
-  glTexCoord2f(.5, .5);glVertex3f( 0.5f, 1.0f, 1.4f);
-  glTexCoord2f(.5, 0);glVertex3f( 0.7f, 1.0f, 1.4f);
+  glVertex3f( 0.65f,  1.2f, 1.4f);
+  glVertex3f( 0.5f,  1.2f, 1.4f);
+  glVertex3f( 0.5f, 1.05f, 1.4f);
+  glVertex3f( 0.65f, 1.05f, 1.4f);
 
   glEnd();
   GLUquadricObj *quadric;
@@ -461,7 +466,7 @@ void displayOjos(){
 
   // Render
   glPushMatrix();
-  glTranslated(0,0,-3);
+  glTranslated(0,0,-2);
 
   glPopMatrix();
 }
