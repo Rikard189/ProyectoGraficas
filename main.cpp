@@ -3,19 +3,42 @@
     * Ricardo Leonel Acosta Esquivel - A01039456
     * Ivan Muñiz Ramirez - A01039386
  */
-/*
-  Para correr el programa
-  macOS
-  gcc main.cpp -o prueba -framework OpenGL -framework GLUT
 
-  Ubuntu
-  gcc main.cpp -o prueba -lGL -lGLU -lglut
+/*
+	Para correr el programa
+	macOS
+	gcc main.cpp -o GallinaMaincra -framework OpenGL -framework GLUT -w && ./GallinaMaincra
+
+	Ubuntu
+	gcc main.cpp -o GallinaMaincra -lGL -lGLU -lglut -w && ./GallinaMaincra
+*/
+
+/*
+	Rotación:
+		Flechas del teclado(up, down, left, right)
+	
+	Traslación:
+		Tecla 	: Acción
+		--------------------------------------------------
+		t 		: Desplazamiento para la derecha
+		j 		: Desplazamiento para la izquierda
+		y 		: Desplazamiento para arriba
+		h 		: Desplazamiento para abajo
+		u 		: Acercar la camara
+		j 		: Alejar la camara
+
+	Escalar
+		Tecla	: Acción
+		-------------------------------------------------
+		i 		: + Escalamiento sobre x (horizontal)
+		k 		: - Escalamiento sobre x (horizontal)
+		o 		: + Escalamiento sobre y (vertical)
+		l 		: - Escalamiento sobre y (vertical)
+		p 		: + Escalamaiento sobre z
+		; 		: - Escalamiento sobre z
 */
 
 #include <GL/glut.h> // GLUT, include glu.h and gl.h
-// #include <glm/glm.hpp>
-// #include <glm/gtc/matrix_transform.hpp>
-// #include <glm/gtc/type_ptr.hpp>
 /* Global variables */
 char title[] = "3D Shapes";
 
@@ -648,6 +671,277 @@ void displayArbol()
 	glPopMatrix();
 }
 
+void displayArbol2()
+{
+	glBegin(GL_QUADS);
+	//TRONCO cara abajo
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(4.0f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, -0.6f);
+	glVertex3f(4.0f, 0.0f, -0.6f);
+
+	// TRONCO cara frontal
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, 0.0f);
+	glVertex3f(4.0f, 0.0f, 0.0f);
+	glVertex3f(4.0f, 3.0f, 0.0f);
+	glVertex3f(3.4f, 3.0f, 0.0f);
+
+	// TRONCO cara trasera
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, -0.6f);
+	glVertex3f(4.0f, 0.0f, -0.6f);
+	glVertex3f(4.0f, 3.0f, -0.6f);
+	glVertex3f(3.4f, 3.0f, -0.6f);
+
+	// TRONCO cara derecha
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(4.0f, 0.0f, 0.0f);
+	glVertex3f(4.0f, 0.0f, -0.6f);
+	glVertex3f(4.0f, 3.0f, -0.6f);
+	glVertex3f(4.0f, 3.0f, 0.0f);
+
+	// TRONCO cara izquierda
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, 0.0f);
+	glVertex3f(3.4f, 0.0f, -0.6f);
+	glVertex3f(3.4f, 3.0f, -0.6f);
+	glVertex3f(3.4f, 3.0f, 0.0f);
+
+	// ARBUSTO cara abajo
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(5.6f, 3.0f, 0.0f);
+	glVertex3f(1.6f, 3.0f, 0.0f);
+	glVertex3f(1.6f, 3.0f, -2.0f);
+	glVertex3f(5.6f, 3.0f, -2.0f);
+
+	// ARBUSTO cara frontal
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f, 3.0f, 0.0f);
+	glVertex3f(5.6f, 3.0f, 0.0f);
+	glVertex3f(5.6f, 5.0f, 0.0f);
+	glVertex3f(1.6f, 5.0f, 0.0f);
+
+	// ARBUSTO cara trasera
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f, 3.0f, -2.0f);
+	glVertex3f(5.6f, 3.0f, -2.0f);
+	glVertex3f(5.6f, 5.0f, -2.0f);
+	glVertex3f(1.6f, 5.0f, -2.0f);
+
+	// ARBUSTO cara derecha
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(5.6f, 3.0f, 0.0f);
+	glVertex3f(5.6f, 3.0f, -2.0f);
+	glVertex3f(5.6f, 5.0f, -2.0f);
+	glVertex3f(5.6f, 5.0f, 0.0f);
+
+	// ARBUSTO cara izquierda
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f, 3.0f, 0.0f);
+	glVertex3f(1.6f, 3.0f, -2.0f);
+	glVertex3f(1.6f, 5.0f, -2.0f);
+	glVertex3f(1.6f, 5.0f, 0.0f);
+
+	glEnd(); // End of drawing color-cube
+
+	GLUquadricObj *quadric;
+	quadric = gluNewQuadric();
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluQuadricTexture(quadric, GL_TRUE);
+	gluQuadricOrientation(quadric, GLU_INSIDE);
+
+	// Render
+	glPushMatrix();
+	// gluSphere(quadric,1,16,16);
+	//// gluCylinder (or cone),gluDisk,gluPartialDisk
+
+	glPopMatrix();
+}
+
+void displayArbol3()
+{
+	glBegin(GL_QUADS);
+	float diferenciaZ = 5.0f;
+	float diferenciaX = -4.0f;
+	//TRONCO cara abajo
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+
+	// TRONCO cara frontal
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// TRONCO cara trasera
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+
+	// TRONCO cara derecha
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.0f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// TRONCO cara izquierda
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(-2.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara abajo
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+
+	// ARBUSTO cara frontal
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara trasera
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+
+	// ARBUSTO cara derecha
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(-0.4f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara izquierda
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(-4.4f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	glEnd(); // End of drawing color-cube
+
+	GLUquadricObj *quadric;
+	quadric = gluNewQuadric();
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluQuadricTexture(quadric, GL_TRUE);
+	gluQuadricOrientation(quadric, GLU_INSIDE);
+
+	// Render
+	glPushMatrix();
+	// gluSphere(quadric,1,16,16);
+	//// gluCylinder (or cone),gluDisk,gluPartialDisk
+
+	glPopMatrix();
+}
+
+void displayArbol4()
+{
+	glBegin(GL_QUADS);
+	float diferenciaZ = 5.0f;
+	float diferenciaX = 4.0f;
+	//TRONCO cara abajo
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(4.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+
+	// TRONCO cara frontal
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// TRONCO cara trasera
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+
+	// TRONCO cara derecha
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(4.0f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(4.0f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// TRONCO cara izquierda
+	glColor3f(0.545f, 0.0f, 0.0f);
+	glVertex3f(3.4f + diferenciaX, 0.0f, 0.0f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 0.0f, -0.6f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 3.0f, -0.6f + diferenciaZ);
+	glVertex3f(3.4f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara abajo
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(5.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+
+	// ARBUSTO cara frontal
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara trasera
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+
+	// ARBUSTO cara derecha
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(5.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(5.6f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	// ARBUSTO cara izquierda
+	glColor3f(0.42f, 0.557f, 0.137f);
+	glVertex3f(1.6f + diferenciaX, 3.0f, 0.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 3.0f, -2.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 5.0f, -2.0f + diferenciaZ);
+	glVertex3f(1.6f + diferenciaX, 5.0f, 0.0f + diferenciaZ);
+
+	glEnd(); // End of drawing color-cube
+
+	GLUquadricObj *quadric;
+	quadric = gluNewQuadric();
+	gluQuadricNormals(quadric, GLU_SMOOTH);
+	gluQuadricTexture(quadric, GL_TRUE);
+	gluQuadricOrientation(quadric, GLU_INSIDE);
+
+	// Render
+	glPushMatrix();
+	// gluSphere(quadric,1,16,16);
+	//// gluCylinder (or cone),gluDisk,gluPartialDisk
+
+	glPopMatrix();
+}
+
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear color and depth buffers
@@ -658,8 +952,8 @@ void display()
 	glTranslatef(translateA, translateB, translateC); // Move right and into the screen
 
 	// glRotatef(rotateA, rotateB, rotateC, rotateD); // Initial rotation for camera position
-	glRotatef(rotationX, 1, 0, 0);				   // Rotar en X
-	glRotatef(rotationY, 0, 1, 0);				   // Rotar en Y
+	glRotatef(rotationX, 1, 0, 0); // Rotar en X
+	glRotatef(rotationY, 0, 1, 0); // Rotar en Y
 
 	glScalef(scaleA, scaleB, scaleC);
 
@@ -674,6 +968,9 @@ void display()
 	displayOjos();
 	displayPapada();
 	displayArbol();
+	displayArbol2();
+	displayArbol3();
+	displayArbol4();
 
 	glutSwapBuffers(); // Swap the front and back frame buffers (double buffering)
 }
@@ -699,21 +996,8 @@ void reshape(GLsizei width, GLsizei height)
 
 void keyboard(unsigned char key, int x, int y)
 {
-	switch (key) {
-	// Para rotar en diagonal utilice 'e', 'd', 'r', y 'f'
-	case 'e':
-	  rotateC += 0.5;
-	  break;
-	case 'd':
-	  rotateC -= 0.5;
-	  break;
-	case 'r':
-	  rotateD += 1;
-	  break;
-	case 'f':
-	  rotateD -= 1;
-	  break;
-
+	switch (key)
+	{
 	// translate
 	// to translate the chicken, you use 't', 'g', 'y', 'h', 'u', and 'j'
 	case 't':
@@ -764,23 +1048,25 @@ void keyboard(unsigned char key, int x, int y)
 	glutPostRedisplay();
 }
 
-void catchKeyboardRotation(int key, int x, int y) {
-	switch (key) {
+void catchKeyboardRotation(int key, int x, int y)
+{
+	switch (key)
+	{
 
-		case GLUT_KEY_UP:
-			rotationX += 1;
-			break;
-		case GLUT_KEY_DOWN:
-			rotationX -= 1;
-			break;
-		case GLUT_KEY_RIGHT:
-			rotationY += 1;
-			break;
-		case GLUT_KEY_LEFT:
-			rotationY -= 1;
-			break;
-		default:
-			break;
+	case GLUT_KEY_UP:
+		rotationX += 1;
+		break;
+	case GLUT_KEY_DOWN:
+		rotationX -= 1;
+		break;
+	case GLUT_KEY_LEFT:
+		rotationY += 1;
+		break;
+	case GLUT_KEY_RIGHT:
+		rotationY -= 1;
+		break;
+	default:
+		break;
 	}
 	glutPostRedisplay();
 }
@@ -788,16 +1074,16 @@ void catchKeyboardRotation(int key, int x, int y) {
 /* Main function: GLUT runs as a console application starting at main() */
 int main(int argc, char **argv)
 {
-	glutInit(&argc, argv);			  // Initialize GLUT
-	glutInitDisplayMode(GLUT_DOUBLE); // Enable double buffered mode
-	glutInitWindowSize(1000, 1000);	  // Set the window's initial width & height
-	glutInitWindowPosition(50, 50);	  // Position the window's initial top-left corner
-	glutCreateWindow(title);		  // Create window with the given title
-	glutDisplayFunc(display);		  // Register callback handler for window re-paint event
-	glutKeyboardFunc(keyboard);		//	Escalar y trasladar escena
+	glutInit(&argc, argv);					// Initialize GLUT
+	glutInitDisplayMode(GLUT_DOUBLE);		// Enable double buffered mode
+	glutInitWindowSize(1000, 1000);			// Set the window's initial width & height
+	glutInitWindowPosition(50, 50);			// Position the window's initial top-left corner
+	glutCreateWindow(title);				// Create window with the given title
+	glutDisplayFunc(display);				// Register callback handler for window re-paint event
+	glutKeyboardFunc(keyboard);				//	Escalar y trasladar escena
 	glutSpecialFunc(catchKeyboardRotation); // Rotar escena con arrow keys
-	glutReshapeFunc(reshape); // Register callback handler for window re-size event
-	initGL();				  // Our own OpenGL initialization
-	glutMainLoop();			  // Enter the infinite event-processing loop
+	glutReshapeFunc(reshape);				// Register callback handler for window re-size event
+	initGL();								// Our own OpenGL initialization
+	glutMainLoop();							// Enter the infinite event-processing loop
 	return 0;
 }
